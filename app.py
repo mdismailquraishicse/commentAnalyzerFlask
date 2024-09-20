@@ -1,10 +1,14 @@
 from flask import Flask, render_template
+import pandas as pd
+
+path = 'prediction.csv'
+df = pd.read_csv(path)
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', df = df)
 
 @app.route('/analyze')
 def analyze():

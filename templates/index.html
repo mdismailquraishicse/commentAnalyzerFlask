@@ -7,9 +7,16 @@
 </head>
 <body>
     <h1>Comment Analyzer</h1>
-    <form action="/analyze">
+    <table>
+    {% for text in df['comment'].values %}
+    <tr>
+        {{text}}
+    </tr>
+    {% endfor %}
+    </table>
+    <!-- <form action="/analyze">
         <textarea name="textarea" ></textarea>
         <button type="submit">Analyze</button>
-    </form>
+    </form> -->
 </body>
 </html>
