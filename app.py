@@ -8,7 +8,13 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html', df = df)
+    class_senti = ['a', 'b', 'c', 'd']
+    class_spam = ['No', 'Yes']
+    return render_template('index.html', comments = df['comment'].values,
+                           spam = df['pred_spam'].values,
+                           senti = df['pred_sentiment'].values,
+                           class_spam = class_spam, class_senti = class_senti,
+                           n = len(df['comment'].values))
 
 @app.route('/analyze')
 def analyze():
