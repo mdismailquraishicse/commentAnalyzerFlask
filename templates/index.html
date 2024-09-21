@@ -119,6 +119,7 @@
                 <th>Comment</th>
                 <th>Spam</th>
                 <th>Sentiment</th>
+                <th>Cluster</th>
             </tr>
             {% for i in range(n) %}
             <tr>
@@ -126,6 +127,7 @@
                 <td class="comment-col">{{comments[i]}}</td>
                 <td>{{class_spam[spam[i]]}}</td>
                 <td>{{class_senti[senti[i]]}}</td>
+                <td>{{cluster[i]}}</td>
             </tr>
             {% endfor %}
         </table>

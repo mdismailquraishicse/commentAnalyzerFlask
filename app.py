@@ -6,6 +6,8 @@ import numpy as np
 
 sentimentAnalyzer = pickle.load(open('pickles/sentimentAnalyzer.pkl','rb'))
 spamDetector = pickle.load(open('pickles/spam_model_with_pipe.pkl','rb'))
+clusterModel = pickle.load(open('pickles/clusterModel.pkl','rb'))
+
 
 path = 'prediction.csv'
 df = pd.read_csv(path)
@@ -19,7 +21,7 @@ def index():
     return render_template('index.html', comments = df['comment'].values,
                            spam = df['pred_spam'].values,
                            senti = df['pred_sentiment'].values,
-                           class_spam = class_spam, class_senti = class_senti,
+                           class_spam = class_spam, class_senti = class_senti, cluster = df['cluster'].values,
                            n = len(df['comment'].values))
 
 @app.route('/pred',methods=['POST', "GET"])
@@ -30,8 +32,10 @@ def pred():
 
     senti = sentimentAnalyzer.predict(np.array([text])) 
     senti = class_senti[senti[0]]
+
+    cluster = clusterModel.predict(np.array(['text']))
     return render_template('prediction.html',
-                           spam = spam, text = text, senti=senti)
+                           spam = spam, text = text, senti=senti, cluster=cluster)
 @app.route('/prediction')
 def prediction():
     return render_template('prediction.html')
