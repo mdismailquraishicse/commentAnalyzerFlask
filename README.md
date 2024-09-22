@@ -11,8 +11,8 @@ Steps to run :
 * download the datasets : https://drive.google.com/drive/folders/1usfCyRQBis7hXXeNNdJeE46SemkYSEvg?usp=drive_link
 * download the pickle files : https://drive.google.com/drive/folders/1HyUhtNc_XhTfsXgJyGBvfaXdiEZUu8qO?usp=drive_link
 
-![Screenshot (5)](https://github.com/user-attachments/assets/f9136181-5a74-4678-a1e4-5955dfdb2a9c)
 
+![Screenshot (11)](https://github.com/user-attachments/assets/a2810c45-0152-4abd-84aa-df9ec8bef2f4)
 
 ![Screenshot (6)](https://github.com/user-attachments/assets/ea35f5bc-4b18-42d1-a198-e889d6adc8ff)
 
