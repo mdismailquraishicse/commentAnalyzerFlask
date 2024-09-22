@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
-from sklearn.feature_extraction.text import CountVectorizer
+# from sklearn.feature_extraction.text import CountVectorizer
+from preprocess import textPreprocess
 import pandas as pd
 import pickle
 import numpy as np
@@ -13,7 +14,7 @@ path = 'prediction.csv'
 df = pd.read_csv(path)
 
 app = Flask(__name__)
-class_senti = ['Irrelevant', 'Natural', 'Negative', 'Positive']
+class_senti = ['Irrelevant', 'Neutral', 'Negative', 'Positive']
 class_spam = ['No Spam', 'Spam']
 
 @app.route('/')
@@ -27,6 +28,7 @@ def index():
 @app.route('/pred',methods=['POST', "GET"])
 def pred():
     text = request.form.get('comment')
+    text = textPreprocess(text)
     spam = spamDetector.predict(np.array([text])) 
     spam = class_spam[spam[0]]
 
@@ -46,4 +48,4 @@ def contact():
 
 
 if __name__=='__main__':
-    Flask.run(debug=True, reload=True)
+    Flask.run(reload=True)
