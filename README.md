@@ -6,7 +6,7 @@ Steps to run :
 3. copy or move the pickle folder inside the cloned repository
 4. install the libraries by command : pip install -r requirements.txt
 5. run the command : flask run --reload
-*Note :* Don't forget to install required libraries
+* *Note :* Don't forget to install required libraries
 
 * download the datasets : https://drive.google.com/drive/folders/1usfCyRQBis7hXXeNNdJeE46SemkYSEvg?usp=drive_link
 * download the pickle files : https://drive.google.com/drive/folders/1HyUhtNc_XhTfsXgJyGBvfaXdiEZUu8qO?usp=drive_link
