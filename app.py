@@ -28,14 +28,14 @@ def index():
 @app.route('/pred',methods=['POST', "GET"])
 def pred():
     text = request.form.get('comment')
-    text = textPreprocess(text)
-    spam = spamDetector.predict(np.array([text])) 
+    processedText = textPreprocess(text)
+    spam = spamDetector.predict(np.array([processedText])) 
     spam = class_spam[spam[0]]
 
-    senti = sentimentAnalyzer.predict(np.array([text])) 
+    senti = sentimentAnalyzer.predict(np.array([processedText])) 
     senti = class_senti[senti[0]]
 
-    cluster = clusterModel.predict(np.array(['text']))
+    cluster = clusterModel.predict([processedText])
     return render_template('prediction.html',
                            spam = spam, text = text, senti=senti, cluster=cluster)
 @app.route('/prediction')
